@@ -8,6 +8,15 @@ class Car {
     double galsRemaining, sizeOfTank, gasMileage;
     static int num = 0;
 
+    boolean isOlderThan(Car c) {
+        if (this.yearsOld > c.yearsOld) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    
     Car(String make, String model) {
         this.make = make;
         this.model = model;
@@ -50,14 +59,13 @@ class Car {
         return tankPerc;
     }
 
-    boolean drive(int numMiles) {
+    void drive(int numMiles) throws Exception {
         double numGallonsRequired = numMiles / this.gasMileage;
         if (numGallonsRequired > this.galsRemaining) {
-            return false;
+            throw new Exception("Not enough gas!!");
         }
         this.galsRemaining -= numGallonsRequired;
         this.odo += numMiles;
-        return true;
     }
  
     public String toString() {
@@ -65,16 +73,73 @@ class Car {
             " gallons in the tank";
     }
 
+    public boolean equals(String s) {
+        if (this.make.equals(s)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean equals(Car c) {
+        if (this.odo == c.odo) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public static void main(String args[]) {
+        Car ferrari = new Car("Ferrari","FX243");
+        Car ferrari2 = new Car("Ferrari","FX243");
+        Car ferrari3 = ferrari2;
+        Car jaguar = new Car("Jaguar","J");
+
+        if (ferrari.equals(jaguar)) {
+            System.out.println("Identical cars!");
+        } else {
+            System.out.println("NOT identical cars!");
+        }
+        if (ferrari.equals("Ferrari")) {
+            System.out.println("Identical cars!");
+        } else {
+            System.out.println("NOT identical cars!");
+        }
+/*
+        ferrari.yearsOld = 5;
+        jaguar.yearsOld = 11;
+
+        if (ferrari.isOlderThan(jaguar)) {
+            System.out.println("The Ferrari is older.");
+        } else {
+            System.out.println("The Ferrari is NOT older.");
+        }
+
         System.out.println("There are now " + Car.numCars() + " cars.");
         Car bigLoudGuysCar = new Car("GM", "Oldsmobile");
         System.out.println("There are now " + Car.numCars() + " cars.");
         Car stephensCar = new Car("Chevy", "Malibu");
         System.out.println("There are now " + Car.numCars() + " cars.");
-        bigLoudGuysCar.drive(50);
-        stephensCar.drive(5);
+
+        System.out.println("At the start, before any drives, I have these two cars:");
+        System.out.println(bigLoudGuysCar);
+        System.out.println(stephensCar);
+        System.out.println("----------------------");
+        try {
+            System.out.println("About to drive BLGC 50 miles.");
+            bigLoudGuysCar.drive(50);
+            System.out.println("About to drive BLGC 50000 miles.");
+            bigLoudGuysCar.drive(50000);
+            System.out.println("About to drive stephensCar 5 miles.");
+            stephensCar.drive(5);
+            System.out.println("Done!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         System.out.println("Big Loud Guy drives a " + bigLoudGuysCar);
         System.out.println("Stephen drives a " + stephensCar);
+*/
     }
 
 }
