@@ -8,6 +8,10 @@ class Car {
     double galsRemaining, sizeOfTank, gasMileage;
     static int num = 0;
 
+    void setOdo(int newReading) {
+        this.odo = newReading;
+    }
+
     boolean isOlderThan(Car c) {
         if (this.yearsOld > c.yearsOld) {
             return true;
