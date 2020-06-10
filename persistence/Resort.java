@@ -17,6 +17,12 @@ class Resort {
         this.rating = Integer.valueOf(starsLine.split(" ")[0]);
         String dollarsLine = s.nextLine();  // "$$$$"
         this.price = dollarsLine.length();
+        this.desc = "";
+        String blg = s.nextLine();
+        while (!blg.equals(".")) {
+            this.desc += blg + "\n";
+            blg = s.nextLine();
+        }
     }
 
     Resort(String name, String phone, String desc, int rating, int price) {
@@ -69,6 +75,9 @@ class Resort {
             Scanner s = new Scanner(f);
             Resort hydratedResort = new Resort(s);
             System.out.println(hydratedResort);
+            System.out.println("The price is: " + hydratedResort.price);
+            System.out.println("The rating is: " + hydratedResort.rating);
+            System.out.println("The desc is: \n" + hydratedResort.desc);
         } catch (Exception e) {
             e.printStackTrace();
         }
