@@ -10,8 +10,11 @@ class Resort {
     private int rating;
     private int price;
 
-    Resort(Scanner s) {
+    Resort(Scanner s) throws Exception {
         this.name = s.nextLine();
+        if (this.name.equals("-END-")) {
+            throw new Exception();
+        }
         this.phone = s.nextLine();
         String starsLine = s.nextLine();   // "3 stars"
         this.rating = Integer.valueOf(starsLine.split(" ")[0]);

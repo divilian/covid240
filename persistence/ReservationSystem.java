@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.io.PrintWriter;
 import java.io.File;
 
@@ -9,10 +10,30 @@ public class ReservationSystem {
     private String chainName;
     private ArrayList<Resort> resorts;
 
+    ReservationSystem(Scanner s) {
+        init();
+        this.chainName = s.nextLine();
+        this.year = Integer.valueOf(s.nextLine().split(" ")[0]);
+        s.nextLine();    // throw away "=====" header
+
+        try {
+            while (true) {
+                Resort r = new Resort(s);
+                add(r);
+            }
+        } catch (Exception e) {
+            
+        }
+    }
+
+    private void init() {
+        resorts = new ArrayList<Resort>();
+    }
+
     ReservationSystem(String chainName) {
+        init();
         this.chainName = chainName;
         this.year = 2020;
-        resorts = new ArrayList<Resort>();
     }
 
     void add(Resort r) {
@@ -40,6 +61,7 @@ public class ReservationSystem {
     }
 
     public static void main(String args[]) {
+/*
         ReservationSystem daviesInns = new ReservationSystem("Davies Inns");
         Resort r = new Resort("Inn #1", "123", "a stinky place", 1, 1);
         Resort r2 = new Resort("Yoda's Hut", "---", "wormy and icky", 1, 1);
@@ -50,12 +72,13 @@ public class ReservationSystem {
         daviesInns.add(r2);
         daviesInns.add(r3);
         System.out.println(daviesInns);    
+*/
 
         try {
-            File f = new File("daviesInns.txt");
-            PrintWriter pw = new PrintWriter(f);
-            daviesInns.persist(pw);
-            pw.close();
+            File f = new File("exampleFormat.txt");
+            Scanner s = new Scanner(f);
+            ReservationSystem example = new ReservationSystem(s);
+            System.out.println("example = " + example);
         } catch (Exception e) {
             e.printStackTrace();
         }
