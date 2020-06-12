@@ -1,22 +1,22 @@
 
 import java.util.ArrayList;
 
-public class CountUniqueArrayList extends ArrayList {
+public class CountUniqueArrayList<Brian> extends ArrayList<Brian> {
 
     public int countUnique() {
-        java.util.HashSet hs = new java.util.HashSet();
+        java.util.HashSet<Brian> hs = new java.util.HashSet<Brian>();
         hs.addAll(this);
         return hs.size();
     }
 
+
     public static void main(String args[]) {
-        CountUniqueArrayList n = new CountUniqueArrayList();
-        n.add("Harry");
-        n.add("Ron");
-        n.add("Hermione");
-        n.add("Harry");
-        n.add("Harry");
-        n.add("Dumbledore");
+        CountUniqueArrayList<Integer> n = new CountUniqueArrayList<Integer>();
+        n.add(13);
+        n.add(23);
+        n.add(27);
+        n.add(13);
+        n.add(14);
       
         System.out.println(n.get(3));         // prints "Harry"
         System.out.println(n.size());         // prints 6
