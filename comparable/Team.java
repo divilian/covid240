@@ -16,6 +16,7 @@ class Team {
 
     void printRoster() {
         System.out.println(name + " roster:");
+        java.util.Collections.sort(roster);
         for (Ballplayer bp: roster) {
             System.out.println(bp);
         }
@@ -51,7 +52,7 @@ class Team {
         jackson.strikeout();
         jackson.strikeout();
 
-        Ballplayer jeter = new Ballplayer("Jeter, Derek");
+        Ballplayer jeter = new Ballplayer("Jeter, Derek the Great");
         jeter.setUni(2);
         jeter.getAHit();
         jeter.getAHit();

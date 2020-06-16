@@ -1,4 +1,4 @@
-class Ballplayer {
+class Ballplayer implements Comparable<Ballplayer> {
 
     private String name, position;
     private int uni, numHits, numAtBats;
@@ -7,6 +7,14 @@ class Ballplayer {
         this.name = name;
         numHits = 0;
         numAtBats = 0;
+    }
+
+    public int compareTo(Ballplayer b) {
+        if (this.getBattingAverage() < b.getBattingAverage()) {
+            return 1;
+        } else {
+            return -1;
+        }
     }
 
     void setUni(int uni) {
