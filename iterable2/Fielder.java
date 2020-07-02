@@ -9,8 +9,6 @@ class Fielder extends Ballplayer {
     Fielder(String name, int birthYear, Position pos, int uni) {
         super(name, birthYear, uni);
         this.pos = pos;
-        this.numHits = 0;
-        this.numABs = 0;
     }
 
     public String toString() {

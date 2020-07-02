@@ -2,10 +2,16 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 
-class Team {
+class Team implements Iterable<Ballplayer> {
     private String name;
     private ArrayList<Pitcher> pitchers;
     private ArrayList<Fielder> fielders;
+
+    public Iterator<Ballplayer> iterator() {
+        ArrayList<Ballplayer> x = (ArrayList<Ballplayer>) pitchers.clone();
+        x.addAll(fielders);
+        return x.iterator();
+    }
 
     Team(String name) {
         this.name = name;

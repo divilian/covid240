@@ -19,24 +19,9 @@ public class Card {
 
     public String toString() {
         if (color == Color.NONE) {
-            return "wild";
+            return rank.name();
         } else {
-            String retval = "";
-            switch (color) {
-            case RED:
-                retval += "red ";
-                break;
-            case GREEN:
-                retval += "green ";
-                break;
-            case BLUE:
-                retval += "blue ";
-                break;
-            case YELLOW:
-                retval += "yellow ";
-                break;
-            }
-            return retval + number;
+            return color.name() + " " + number;
         }
     }
 
