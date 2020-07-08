@@ -6,12 +6,12 @@ public class Lotr {
     Combatant orc1 = new Orc();
     Combatant orc2 = new Armor(new Orc());
     Combatant zombie1 = new Zombie();
-    Combatant wormtongue = new MagicUser();
-    Combatant saruman = new FireShield(new MagicUser(),8);
+    Combatant wormtongue = new Wizard();
+    Combatant saruman = new FireShield(new Wizard(),8);
 
     Combatant aragorn = new Fighter();
     Combatant gimli = new Armor(new Armor(new Armor(new Fighter())));
-    Combatant gandalf = new FireShield(new Armor(new MagicUser()),4);
+    Combatant gandalf = new FireShield(new Armor(new Wizard()),4);
 
     if (gandalf.attack(orc1)) {
         System.out.println("Orc #1 dead after one attack.");

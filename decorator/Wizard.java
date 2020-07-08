@@ -1,5 +1,5 @@
-class MagicUser extends Character {
-    public MagicUser() {
+class Wizard extends Character {
+    public Wizard() {
         hitPoints = 4;
     }
     public int strength() {
